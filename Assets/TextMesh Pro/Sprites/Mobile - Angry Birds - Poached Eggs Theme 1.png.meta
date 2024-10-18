@@ -130,6 +130,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Mobile - Angry Birds - Poached Eggs Theme 1_1
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 259
+        width: 337
+        height: 264
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 7, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec3926f4d22294ffa910fd2b7450d7fa
+      internalID: -1582884090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Angry Birds - Poached Eggs Theme 1_2
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 276
+        width: 468
+        height: 287
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d09983f047b1a430a918aff29f34b9fe
+      internalID: 205957182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline:
     - - {x: -1703, y: -308}
       - {x: -1703, y: -223}
@@ -158,6 +200,8 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       Mobile - Angry Birds - Poached Eggs Theme 1_0: -2033000816
+      Mobile - Angry Birds - Poached Eggs Theme 1_1: -1582884090
+      Mobile - Angry Birds - Poached Eggs Theme 1_2: 205957182
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
