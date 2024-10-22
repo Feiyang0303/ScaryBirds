@@ -26,10 +26,10 @@ public class SlingShotHandler : MonoBehaviour
     }
     private void SetLines(Vector2 position){
         Debug.Log(position);
-        _leftLineRenderer.SetPosition(3, position);
+        _leftLineRenderer.SetPosition(0, position);
         _leftLineRenderer.SetPosition(1, _leftStartPosition.position);
 
-        _rightLineRenderer.SetPosition(3, position);
+        _rightLineRenderer.SetPosition(0, position);
         _rightLineRenderer.SetPosition(1, _rightStartPosition.position);
     }
 }
