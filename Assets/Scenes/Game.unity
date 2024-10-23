@@ -547,6 +547,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1268e46dfad4e4c5ebb1bae4a99a6191, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 0}
 --- !u!1001 &313225315
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -911,7 +912,7 @@ Transform:
   m_GameObject: {fileID: 745012205}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.59, y: -2.27, z: 0}
+  m_LocalPosition: {x: -5.508, y: -2.27, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1923,7 +1924,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.02162572, w: 0.9997662}
   m_LocalPosition: {x: -6.31, y: -2.21, z: 0}
-  m_LocalScale: {x: 1.1228, y: 4.209921, z: 1}
+  m_LocalScale: {x: 1.1228, y: 4.0574083, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1863402613}
@@ -1942,7 +1943,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _slingshotAreaMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
 --- !u!58 &2015492921
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1975,9 +1976,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.010120656, y: 0.06470786}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.43523157
 --- !u!1 &2063904485
 GameObject:
   m_ObjectHideFlags: 0
@@ -2623,7 +2624,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5279315414276862497, guid: 60ac4c3fa761c4108993bac357da48af, type: 3}
       propertyPath: m_Name
-      value: bird1
+      value: Angry Bird
       objectReference: {fileID: 0}
     - target: {fileID: 7260308937145551601, guid: 60ac4c3fa761c4108993bac357da48af, type: 3}
       propertyPath: m_LocalScale.x
@@ -2643,7 +2644,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7260308937145551601, guid: 60ac4c3fa761c4108993bac357da48af, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.25
+      value: 1.38
       objectReference: {fileID: 0}
     - target: {fileID: 7260308937145551601, guid: 60ac4c3fa761c4108993bac357da48af, type: 3}
       propertyPath: m_LocalPosition.z
