@@ -16,11 +16,11 @@ public class bird1 : MonoBehaviour
         _rb.isKinematic = true;
         _circleCollider.enabled = false;
     }
-    public void LaunchBird(Vector2 launchDirection)
+    public void LaunchBird(Vector2 direction, float force)
     {
         _rb.isKinematic = false;
         _circleCollider.enabled = true;
-        _rb.AddForce(launchDirection * launchPower);
+        _rb.AddForce(direction * force, ForceMode2D.Impulse);
         StartCoroutine(DestroyAfterTime(5f));
 
     }
