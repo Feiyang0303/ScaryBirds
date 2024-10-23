@@ -9,7 +9,7 @@ using Vector3 = UnityEngine.Vector3;
 
 public class SlingShotHandler : MonoBehaviour
 {
-    [Header("Line Renderers")] 
+    [Header("Line Renderers")]
     [SerializeField] private LineRenderer _leftLineRenderer;
     [SerializeField] private LineRenderer _rightLineRenderer;
 
@@ -35,23 +35,30 @@ public class SlingShotHandler : MonoBehaviour
     private Vector2 _directionNormalized;
     private bool _clickedWithinArea;
     private GameObject _spawnedAngieBird;
-    
+
     // -------------------------------------------------------
-    private void Awake(){
+    private void Awake()
+    {
         _leftLineRenderer.enabled = false;
         _rightLineRenderer.enabled = false;
 
         SpawnAngieBird();
     }
-    private void Update(){
-        if(Mouse.current.leftButton.wasPressedThisFrame && _slingshotArea.IsWithinSlingShotArea()){
+    private void Update()
+    {
+        if (Mouse.current.leftButton.wasPressedThisFrame && _slingshotArea.IsWithinSlingShotArea())
+        {
             _clickedWithinArea = true;
         }
-        if(Mouse.current.leftButton.isPressed && _clickedWithinArea){
+        if (Mouse.current.leftButton.isPressed && _clickedWithinArea)
+        {
             DrawSlingShot();
             PositionAndRotateAngieBird();
         }
-        if(Mouse.current.leftButton.wasReleasedThisFrame){
+        if (Mouse.current.leftButton.wasReleasedThisFrame)
+        {
+            LaunchBird();
+            ResetSlingShot();
             _clickedWithinArea = false;
         }
         // Debug.Log(Mouse.current.position.ReadValue());
@@ -59,9 +66,10 @@ public class SlingShotHandler : MonoBehaviour
 
     #region SlingShot Methods:
 
-    
 
-    private void DrawSlingShot(){
+
+    private void DrawSlingShot()
+    {
         Vector3 touchposition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         _slingShotLinesPosition = _centerPosition.position + Vector3.ClampMagnitude(touchposition - _centerPosition.position, _maxDistance);
         SetLines(_slingShotLinesPosition);
@@ -70,9 +78,11 @@ public class SlingShotHandler : MonoBehaviour
         _directionNormalized = _direction.normalized;
 
     }
-    private void SetLines(Vector2 position){
+    private void SetLines(Vector2 position)
+    {
         // Debug.Log(position);
-        if(!_leftLineRenderer.enabled && !_rightLineRenderer.enabled){
+        if (!_leftLineRenderer.enabled && !_rightLineRenderer.enabled)
+        {
             _leftLineRenderer.enabled = true;
             _rightLineRenderer.enabled = true;
         }
@@ -88,7 +98,8 @@ public class SlingShotHandler : MonoBehaviour
 
     #region Angie Bird Methods:
 
-    private void SpawnAngieBird(){
+    private void SpawnAngieBird()
+    {
         SetLines(_idlePosition.position);
 
         Vector2 dir = (_centerPosition.position - _idlePosition.position).normalized;
@@ -97,8 +108,25 @@ public class SlingShotHandler : MonoBehaviour
         _spawnedAngieBird = Instantiate(_angieBirdPrefab, spawnPostion, UnityEngine.Quaternion.identity); // 0 rotation
     }
 
-    private void PositionAndRotateAngieBird(){
+    private void PositionAndRotateAngieBird()
+    {
         _spawnedAngieBird.transform.position = _slingShotLinesPosition + _directionNormalized * _angieBirdPositionOffset;
     }
     #endregion
+
+    private void LaunchBird()
+    {
+        bird1 birdScript = _spawnedAngieBird.GetComponent<bird1>();
+
+        if (birdScript != null)
+        {
+            birdScript.LaunchBird(_directionNormalized, _direction.magnitude * birdScript.launchPower);
+        }
+    }
+    private void ResetSlingShot()
+    {
+        _leftLineRenderer.enabled = false;
+        _rightLineRenderer.enabled = false;
+        SpawnAngieBird();
+    }
 }
