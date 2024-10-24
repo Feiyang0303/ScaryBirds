@@ -409,7 +409,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 256446969}
-  - component: {fileID: 256446972}
   - component: {fileID: 256446971}
   - component: {fileID: 256446970}
   m_Layer: 5
@@ -435,7 +434,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -317, y: 163}
+  m_AnchoredPosition: {x: -240.5, y: 139}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &256446970
@@ -467,8 +466,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278720304
+  m_fontColor: {r: 0.1882353, g: 0.09019608, b: 0.03137255, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -485,8 +484,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -535,19 +534,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 256446968}
   m_CullTransparentMesh: 1
---- !u!114 &256446972
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 256446968}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1268e46dfad4e4c5ebb1bae4a99a6191, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreText: {fileID: 0}
 --- !u!1001 &313225315
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -980,6 +966,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 3
   _damageThreshhold: 1.5
+  pointsForDestruction: 10
 --- !u!1 &855324584
 GameObject:
   m_ObjectHideFlags: 0
@@ -1134,6 +1121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 3
   _damageThreshhold: 3
+  pointsForDestruction: 10
 --- !u!1 &987868677
 GameObject:
   m_ObjectHideFlags: 0
@@ -1494,6 +1482,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 3
   _damageThreshhold: 1
+  pointsForDestruction: 10
 --- !u!1001 &1655557658
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1807,6 +1796,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 3
   _damageThreshhold: 1
+  pointsForDestruction: 10
 --- !u!1 &1863402611
 GameObject:
   m_ObjectHideFlags: 0

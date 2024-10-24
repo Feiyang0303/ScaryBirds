@@ -7,6 +7,8 @@ public class pumpkin : MonoBehaviour
     [SerializeField] private float _maxHealth = 3f;
     [SerializeField] private float _damageThreshhold = 1f;
     private float _currentHelath;
+    [SerializeField] private int pointsForDestruction = 10;
+
     public void Awake()
     {
         _currentHelath = _maxHealth;
@@ -22,6 +24,7 @@ public class pumpkin : MonoBehaviour
     }
     private void Die()
     {
+        Points.instance.AddScore(pointsForDestruction);
         Destroy(gameObject);
     }
     private void OnCollisionEnter2D(Collision2D collision)
