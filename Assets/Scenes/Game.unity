@@ -435,7 +435,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -255, y: 128}
+  m_AnchoredPosition: {x: -317, y: 163}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &256446970
@@ -1703,9 +1703,9 @@ MonoBehaviour:
   _centerPosition: {fileID: 569824585}
   _idlePosition: {fileID: 1974827413}
   _maxDistance: 3.5
-  _shotForce: 5
+  _shotForce: 10
   _slingshotArea: {fileID: 2015492920}
-  _angieBirdPrefab: {fileID: 2146530933}
+  _angieBirdPrefab: {fileID: 2146530938}
   _angieBirdPositionOffset: 0.275
 --- !u!4 &1863402613
 Transform:
@@ -1965,8 +1965,8 @@ Transform:
   m_GameObject: {fileID: 2015492918}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.02162572, w: 0.9997662}
-  m_LocalPosition: {x: -6.31, y: -2.21, z: 0}
-  m_LocalScale: {x: 1.1228, y: 4.0574083, z: 1}
+  m_LocalPosition: {x: -6.31, y: -2.08, z: 0}
+  m_LocalScale: {x: 1.4178718, y: 9.555672, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1863402613}
@@ -2206,11 +2206,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 658602204279671546, guid: e8d6d2b6ebd094fca92ed0c4aea43333, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.08
+      value: -6.66
       objectReference: {fileID: 0}
     - target: {fileID: 658602204279671546, guid: e8d6d2b6ebd094fca92ed0c4aea43333, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.8
+      value: -6.23
       objectReference: {fileID: 0}
     - target: {fileID: 658602204279671546, guid: e8d6d2b6ebd094fca92ed0c4aea43333, type: 3}
       propertyPath: m_LocalPosition.z
