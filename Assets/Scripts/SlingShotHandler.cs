@@ -22,19 +22,20 @@ public class SlingShotHandler : MonoBehaviour
 
     [Header("Slingshot Stats")]
     [SerializeField] private float _maxDistance = 3.5f;
+    [SerializeField] private float _shotForce = 5f;
 
     [Header("Scripts")]
     [SerializeField] private SlingShotArea _slingshotArea;
 
     [Header("Bird")]
-    [SerializeField] private GameObject _angieBirdPrefab;
+    [SerializeField] private bird1 _angieBirdPrefab;
     [SerializeField] private float _angieBirdPositionOffset = 2f;
 
     private Vector2 _slingShotLinesPosition;
     private Vector2 _direction;
     private Vector2 _directionNormalized;
     private bool _clickedWithinArea;
-    private GameObject _spawnedAngieBird;
+    private bird1 _spawnedAngieBird;
     
     // -------------------------------------------------------
     private void Awake(){
@@ -53,6 +54,8 @@ public class SlingShotHandler : MonoBehaviour
         }
         if(Mouse.current.leftButton.wasReleasedThisFrame){
             _clickedWithinArea = false;
+
+            _spawnedAngieBird.LaunchBird(_direction, _shotForce);
         }
         // Debug.Log(Mouse.current.position.ReadValue());
     }
@@ -95,10 +98,12 @@ public class SlingShotHandler : MonoBehaviour
         Vector2 spawnPostion = (Vector2)_idlePosition.position * dir * _angieBirdPositionOffset;
 
         _spawnedAngieBird = Instantiate(_angieBirdPrefab, spawnPostion, UnityEngine.Quaternion.identity); // 0 rotation
+        _spawnedAngieBird.transform.right = dir;
     }
 
     private void PositionAndRotateAngieBird(){
         _spawnedAngieBird.transform.position = _slingShotLinesPosition + _directionNormalized * _angieBirdPositionOffset;
+        _spawnedAngieBird.transform.right = _directionNormalized;
     }
     #endregion
 }
