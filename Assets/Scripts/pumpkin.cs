@@ -5,7 +5,7 @@ using UnityEngine;
 public class pumpkin : MonoBehaviour
 {
     [SerializeField] private float _maxHealth = 3f;
-    [SerializeField] private float _damageThreshhold = 0.1f;
+    [SerializeField] private float _damageThreshhold = 1f;
     private float _currentHelath;
     public void Awake()
     {
@@ -24,7 +24,7 @@ public class pumpkin : MonoBehaviour
     {
         Destroy(gameObject);
     }
-    private void OnCollissionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         float impactVelocity = collision.relativeVelocity.magnitude;
         if (impactVelocity > _damageThreshhold)
