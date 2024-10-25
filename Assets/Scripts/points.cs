@@ -9,6 +9,20 @@ public class Points : MonoBehaviour
     private int score = 0;
     [SerializeField]
     private TextMeshProUGUI scoreText;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+
     public void AddScore(int points)
     {
         if (points > 0)
@@ -19,6 +33,7 @@ public class Points : MonoBehaviour
 
     }
 
+    //Getter
     public int GetScore()
     {
         return score;
