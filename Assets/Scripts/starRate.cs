@@ -5,7 +5,8 @@ using TMPro;
 
 public class StarRating : MonoBehaviour
 {
-    [SerializeField] private GameObject[] stars;
+    [SerializeField] private GameObject[] brightstars;
+    [SerializeField] private GameObject[] greystars;
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI shotsText;
     private int maxStars = 3;
@@ -35,7 +36,8 @@ public class StarRating : MonoBehaviour
     {
         for (int i = 0; i < maxStars; i++)
         {
-            stars[i].SetActive(i < starCount);
+            brightstars[i].SetActive(i < starCount);
+            greystars[i].SetActive(i >= starCount);
         }
     }
     private void DisplayPerformance(int score, int shots)
