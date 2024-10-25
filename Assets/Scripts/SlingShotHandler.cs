@@ -44,8 +44,6 @@ public class SlingShotHandler : MonoBehaviour
         _leftLineRenderer.enabled = false;
         _rightLineRenderer.enabled = false;
 
-        // StartCoroutine(SpawnAngieBirdAfterTime());
-
         SpawnAngieBird();
     }
     private void Update(){
