@@ -45,9 +45,9 @@ public class GameManager : MonoBehaviour
 
     // restrict number of birds to 3 per round
 
-    private void Awake(){
-        if(Instance == null){Instance = this;}
-    }
+    // private void Awake(){
+    //     if(Instance == null){Instance = this;}
+    // }
     public void UseShot(){
         _usedNumberofShots++;
     }
