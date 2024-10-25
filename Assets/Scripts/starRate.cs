@@ -16,18 +16,17 @@ public class StarRating : MonoBehaviour
         int finalScore = Points.instance.GetScore();
         int shotsTaken = GameManager.instance.GetShotsTaken();
         DisplayPerformance(finalScore, shotsTaken);
-        int starRating = CalculateStars(finalScore, shotsTaken);
+        int starRating = CalculateStars(finalScore);
         DisplayStars(starRating);
     }
 
-    private int CalculateStars(int score, int shots)
+    private int CalculateStars(int score)
     {
-        float scoreRatio = (float)score / shots;
-        if (scoreRatio >= 30)
+        if (score >= 40)
             return 3;
-        else if (scoreRatio >= 20)
+        else if (score >= 30 && score < 40)
             return 2;
-        else if (scoreRatio >= 10)
+        else if (score >= 10 && score < 30)
             return 1;
         return 0;
     }
