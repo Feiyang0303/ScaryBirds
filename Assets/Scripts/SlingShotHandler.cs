@@ -23,6 +23,7 @@ public class SlingShotHandler : MonoBehaviour
     [Header("Slingshot Stats")]
     [SerializeField] private float _maxDistance = 3.5f;
     [SerializeField] private float _shotForce = 5f;
+    [SerializeField] private float _timeBetweenBirdRespawns = 2f;
 
     [Header("Scripts")]
     [SerializeField] private SlingShotArea _slingshotArea;
@@ -35,6 +36,7 @@ public class SlingShotHandler : MonoBehaviour
     private Vector2 _direction;
     private Vector2 _directionNormalized;
     private bool _clickedWithinArea;
+    private bool _birdOnSlingshot;
     private bird1 _spawnedAngieBird;
     
     // -------------------------------------------------------
@@ -42,27 +44,37 @@ public class SlingShotHandler : MonoBehaviour
         _leftLineRenderer.enabled = false;
         _rightLineRenderer.enabled = false;
 
+        // StartCoroutine(SpawnAngieBirdAfterTime());
+
         SpawnAngieBird();
     }
     private void Update(){
         if(Mouse.current.leftButton.wasPressedThisFrame && _slingshotArea.IsWithinSlingShotArea()){
             _clickedWithinArea = true;
         }
-        if(Mouse.current.leftButton.isPressed && _clickedWithinArea){
+        if(Mouse.current.leftButton.isPressed && _clickedWithinArea && _birdOnSlingshot){
             DrawSlingShot();
             PositionAndRotateAngieBird();
         }
-        if(Mouse.current.leftButton.wasReleasedThisFrame){
+        if(Mouse.current.leftButton.wasReleasedThisFrame && _birdOnSlingshot){
+            if(GameManager.Instance.HasEnoughShots()){
             _clickedWithinArea = false;
 
             _spawnedAngieBird.LaunchBird(_direction, _shotForce);
+
+            GameManager.Instance.UseShot();
+            _birdOnSlingshot = false;
+
+            SetLines(_centerPosition.position);
+            if(GameManager.Instance.HasEnoughShots()){
+                StartCoroutine(SpawnAngieBirdAfterTime());
+            }
+           }
         }
         // Debug.Log(Mouse.current.position.ReadValue());
     }
 
     #region SlingShot Methods:
-
-    
 
     private void DrawSlingShot(){
         Vector3 touchposition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
@@ -99,11 +111,21 @@ public class SlingShotHandler : MonoBehaviour
 
         _spawnedAngieBird = Instantiate(_angieBirdPrefab, spawnPostion, UnityEngine.Quaternion.identity); // 0 rotation
         _spawnedAngieBird.transform.right = dir;
+
+        _birdOnSlingshot = true;
     }
 
     private void PositionAndRotateAngieBird(){
         _spawnedAngieBird.transform.position = _slingShotLinesPosition + _directionNormalized * _angieBirdPositionOffset;
         _spawnedAngieBird.transform.right = _directionNormalized;
+    }
+
+    private IEnumerator SpawnAngieBirdAfterTime(){
+        yield return new WaitForSeconds(_timeBetweenBirdRespawns);
+
+        // Vector2 dir = (_centerPosition.position - _idlePosition.position).normalized;
+        // Vector2 spawnPostion = (Vector2)_idlePosition.position * dir * _angieBirdPositionOffset;
+        SpawnAngieBird();
     }
     #endregion
 }
