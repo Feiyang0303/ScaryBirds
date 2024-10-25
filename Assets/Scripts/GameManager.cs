@@ -9,8 +9,8 @@ public class GameManager : MonoBehaviour
     private int _shotsTaken = 0;
 
     public int MaxNumberofShots = 3;
-    private int _usedNumberofShots;
-    
+    private int _usedNumberofShots = 0;
+
     private void Awake()
     {
         if (instance == null)
@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
 
     public void AllPumpkinsDestroyed()
     {
-        ShowStarRating();
+        CheckBeforeEnd();
     }
     public void IncrementShotsTaken()
     {
@@ -37,22 +37,33 @@ public class GameManager : MonoBehaviour
         return _shotsTaken;
     }
 
-    private void ShowStarRating()
-    {
-        SceneManager.LoadScene("starRating");
-
-    }
 
     // restrict number of birds to 3 per round
 
-    // private void Awake(){
-    //     if(Instance == null){Instance = this;}
-    // }
-    public void UseShot(){
+
+    public void UseShot()
+    {
         _usedNumberofShots++;
+        if (_usedNumberofShots >= MaxNumberofShots)
+        {
+            CheckBeforeEnd();
+        }
     }
-    public bool HasEnoughShots(){
-        if(_usedNumberofShots < MaxNumberofShots){return true;}
-        else{return false;}
+    public bool HasEnoughShots()
+    {
+        if (_usedNumberofShots < MaxNumberofShots) { return true; }
+        else { return false; }
+    }
+    private void CheckBeforeEnd()
+    {
+        if (_usedNumberofShots >= MaxNumberofShots || pumpkin.TotalPumpkins == 0)
+        {
+            StartCoroutine(ShowStarRatingWithDelay(2f));
+        }
+    }
+    private IEnumerator ShowStarRatingWithDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        SceneManager.LoadScene("starRating");
     }
 }
